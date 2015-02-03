@@ -1,5 +1,5 @@
 <?php
-
+	ob_start();
     function verificaRota($sPagina) {
         $vPaginas = ["index","inicial","empresa","produtos","servicos","contato"];
         if(in_array($sPagina,$vPaginas)){
@@ -12,7 +12,8 @@
             if($sPagina == "")
                 require_once("inicial.php");
             else
-                require_once("erro.php");
+                require_once("erro.php");               
+                header("HTTP/1.0 404 Not Found");
         }
     }
 
@@ -21,7 +22,6 @@
     $sPaginaRota = $vRota['path'];
     $sPagina = substr($sPaginaRota,1);
     $sPagina = strtolower($sPagina);
-
 ?>
 
 
