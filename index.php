@@ -1,16 +1,17 @@
 <?php 
-$vPaginas = [
-    ""         => "inicial.php",
-    "index"    => "inicial.php",
-    "inicial"  => "inicial.php",
-    "empresa"  => "empresa.php",
-    "produtos" => "produtos.php",
-    "servicos" => "servicos.php",
-    "contato"  => "contato.php"
-];
-    	
-function verificaRota($sPagina) {
-    if (array_key_exists($sPagina, $vPaginas) && is_file(__DIR__. "/" . $vPaginas[$sPagina]) {
+	    	
+	function verificaRota($sPagina) {
+		$vPaginas = [
+	    ""         => "inicial.php",
+	    "index"    => "inicial.php",
+	    "inicial"  => "inicial.php",
+	    "empresa"  => "empresa.php",
+	    "produtos" => "produtos.php",
+	    "servicos" => "servicos.php",
+	    "contato"  => "contato.php"
+	];
+
+    if (array_key_exists($sPagina, $vPaginas) && is_file(__DIR__. "/" . $vPaginas[$sPagina])) {
 	require_once __DIR__ . "/" . $vPaginas[$sPagina];
     } else {
         http_response_code(404);
